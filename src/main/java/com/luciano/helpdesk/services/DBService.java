@@ -9,6 +9,7 @@ import com.luciano.helpdesk.repositories.ChamadoRepository;
 import com.luciano.helpdesk.repositories.ClienteRepository;
 import com.luciano.helpdesk.repositories.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -25,6 +26,7 @@ public class DBService {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    @Bean
     public void instanciaDB() {
 
         Tecnico t1 = new Tecnico(null, "Luciano Franca", "395.126.690-21", "(41) 99999-1234");
