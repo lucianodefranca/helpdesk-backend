@@ -1,5 +1,6 @@
 package com.luciano.helpdesk.resources;
 
+import com.luciano.helpdesk.dtos.TecnicoDTO;
 import com.luciano.helpdesk.entities.Tecnico;
 import com.luciano.helpdesk.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class TecnicoResource {
     private TecnicoService service;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable Integer id) {
-        Tecnico obj = service.findById(id);
-        return ResponseEntity.ok().body(obj);
+    public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) {
+        TecnicoDTO objDTO = new TecnicoDTO(service.findById(id));
+        return ResponseEntity.ok().body(objDTO);
     }
 }
