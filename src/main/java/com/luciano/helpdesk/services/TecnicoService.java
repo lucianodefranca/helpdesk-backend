@@ -3,6 +3,7 @@ package com.luciano.helpdesk.services;
 import com.luciano.helpdesk.dtos.TecnicoDTO;
 import com.luciano.helpdesk.entities.Tecnico;
 import com.luciano.helpdesk.repositories.TecnicoRepository;
+import com.luciano.helpdesk.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class TecnicoService {
 
     public Tecnico findById(Integer id) {
         Optional<Tecnico> obj = repository.findById(id);
-        return obj.orElse(null);
+        return obj.orElseThrow(() -> new ObjectNotFoundException(
+                "Objeto não encontrado! ID: " + id + ", Tipo: " + Tecnico.class.getName()));
     }
 }
