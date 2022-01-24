@@ -34,6 +34,20 @@ public class TecnicoService {
         return repository.save(new Tecnico(null, objDTO.getNome(), objDTO.getCpf(), objDTO.getTelefone()));
     }
 
+    public Tecnico update(Integer id, TecnicoDTO objDTO) {
+        Tecnico oldObj = findById(id);
+
+        if (findByCpf(objDTO) != null && findByCpf(objDTO).getId() != id) {
+            throw new DataIntegratyViolationException("CPF já cadastrado na base de dados!");
+        }
+
+        oldObj.setNome(objDTO.getNome());
+        oldObj.setCpf(objDTO.getCpf());
+        oldObj.setTelefone(objDTO.getTelefone());
+
+        return repository.save(oldObj);
+    }
+
     private Tecnico findByCpf(TecnicoDTO objDTO) {
         Tecnico obj = repository.findByCpf(objDTO.getCpf());
         if (obj != null) {
@@ -41,4 +55,5 @@ public class TecnicoService {
         }
         return null;
     }
+
 }
