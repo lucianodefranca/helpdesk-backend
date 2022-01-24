@@ -1,7 +1,9 @@
 package com.luciano.helpdesk.services;
 
 import com.luciano.helpdesk.dtos.TecnicoDTO;
+import com.luciano.helpdesk.entities.Pessoa;
 import com.luciano.helpdesk.entities.Tecnico;
+import com.luciano.helpdesk.repositories.PessoaRepository;
 import com.luciano.helpdesk.repositories.TecnicoRepository;
 import com.luciano.helpdesk.services.exceptions.DataIntegratyViolationException;
 import com.luciano.helpdesk.services.exceptions.ObjectNotFoundException;
@@ -16,6 +18,9 @@ public class TecnicoService {
 
     @Autowired
     private TecnicoRepository repository;
+
+    @Autowired
+    private PessoaRepository pessoaRepository;
 
     public Tecnico findById(Integer id) {
         Optional<Tecnico> obj = repository.findById(id);
@@ -57,8 +62,8 @@ public class TecnicoService {
         repository.deleteById(id);
     }
 
-    private Tecnico findByCpf(TecnicoDTO objDTO) {
-        Tecnico obj = repository.findByCpf(objDTO.getCpf());
+    private Pessoa findByCpf(TecnicoDTO objDTO) {
+        Pessoa obj = pessoaRepository.findByCpf(objDTO.getCpf());
         if (obj != null) {
             return obj;
         }
