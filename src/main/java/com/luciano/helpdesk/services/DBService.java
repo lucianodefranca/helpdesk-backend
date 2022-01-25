@@ -38,8 +38,8 @@ public class DBService {
         Cliente c3 = new Cliente(null, "Celia Lima", "740.185.500-30", "(41) 98912-4321");
 
 
-        Chamado os1 = new Chamado(null, Prioridade.ALTA, "Notebook não liga", Status.ANDAMENTO, t1, c1);
-        Chamado os2 = new Chamado(null, Prioridade.MEDIA, "Sem sinal de internet", Status.ABERTO, t3, c2);
+        Chamado os1 = new Chamado(null, Prioridade.ALTA, "Moldem não liga", Status.ANDAMENTO, t1, c1);
+        Chamado os2 = new Chamado(null, Prioridade.MEDIA, "Sem sinal virtua", Status.ABERTO, t3, c2);
         Chamado os3 = new Chamado(null, Prioridade.BAIXA, "Imagem quadriculando", Status.ENCERRADO, t2, c3);
 
         t1.getChamados().add(os1);

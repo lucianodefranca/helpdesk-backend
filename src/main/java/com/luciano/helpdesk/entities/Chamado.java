@@ -1,7 +1,6 @@
 package com.luciano.helpdesk.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.luciano.helpdesk.entities.enums.Prioridade;
 import com.luciano.helpdesk.entities.enums.Status;
 

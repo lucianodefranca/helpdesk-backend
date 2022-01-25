@@ -3,6 +3,7 @@ package com.luciano.helpdesk.dtos;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.luciano.helpdesk.entities.Chamado;
 
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -17,6 +18,8 @@ public class ChamadoDTO implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime dataFechamento;
     private Integer prioridade;
+
+    @NotEmpty(message = "O campo OBSERVAÇÕES é obrigatorio!")
     private String observacoes;
     private Integer status;
     private Integer tecnico;
