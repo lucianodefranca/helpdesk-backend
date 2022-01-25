@@ -14,6 +14,8 @@ import com.luciano.helpdesk.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +41,12 @@ public class ChamadoService {
         return repository.findAll();
     }
 
-    public Chamado create(ChamadoDTO obj) {
+    public Chamado create(@Valid ChamadoDTO obj) {
+        return fromDTO(obj);
+    }
+
+    public Chamado update(@Valid ChamadoDTO obj) {
+        findById(obj.getId());
         return fromDTO(obj);
     }
 
@@ -56,6 +63,10 @@ public class ChamadoService {
 
         newObj.setTecnico(tec);
         newObj.setCliente(cli);
+
+        if (newObj.getStatus().getCod().equals(2)) {
+            newObj.setDataFechamento(LocalDateTime.now());
+        }
 
         return repository.save(newObj);
     }
