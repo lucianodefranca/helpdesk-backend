@@ -2,6 +2,8 @@ package com.luciano.helpdesk.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.luciano.helpdesk.entities.Chamado;
+import com.luciano.helpdesk.entities.enums.Prioridade;
+import com.luciano.helpdesk.entities.enums.Status;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
@@ -64,8 +66,8 @@ public class ChamadoDTO implements Serializable {
         this.dataFechamento = dataFechamento;
     }
 
-    public Integer getPrioridade() {
-        return prioridade;
+    public Prioridade getPrioridade() {
+        return Prioridade.toEnum(this.prioridade);
     }
 
     public void setPrioridade(Integer prioridade) {
@@ -80,8 +82,8 @@ public class ChamadoDTO implements Serializable {
         this.observacoes = observacoes;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Status getStatus() {
+        return Status.toEnum(this.status);
     }
 
     public void setStatus(Integer status) {

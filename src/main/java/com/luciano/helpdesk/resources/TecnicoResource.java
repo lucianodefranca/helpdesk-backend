@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value = "tecnicos")
+@RequestMapping(value = "/tecnicos")
 public class TecnicoResource {
 
     @Autowired
