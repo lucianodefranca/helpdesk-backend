@@ -40,7 +40,7 @@ public class DBService {
 
         Chamado os1 = new Chamado(null, Prioridade.ALTA, "Moldem não liga", Status.ANDAMENTO, t1, c1);
         Chamado os2 = new Chamado(null, Prioridade.MEDIA, "Sem sinal virtua", Status.ABERTO, t3, c2);
-        Chamado os3 = new Chamado(null, Prioridade.BAIXA, "Imagem quadriculando", Status.ENCERRADO, t2, c3);
+        Chamado os3 = new Chamado(null, Prioridade.BAIXA, "Imagem quadriculando", Status.ABERTO, t2, c3);
 
         t1.getChamados().add(os1);
         c1.getChamados().add(os1);
